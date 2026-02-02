@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="وبسایت ساده برای پروژه ifn" />
+    <title>ifn</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <a class="brand" href="#">
+          <span class="brand__dot" aria-hidden="true"></span>
+          <span class="brand__text">ifn</span>
+        </a>
+
+        <nav class="nav" aria-label="ناوبری اصلی">
+          <a href="#about">درباره</a>
+          <a href="#work">نمونه‌کار</a>
+          <a href="#contact">تماس</a>
+        </nav>
+
+        <button class="btn btn--ghost" id="themeToggle" type="button" aria-label="تغییر تم">
+          تغییر تم
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero__inner">
+          <div class="hero__content">
+            <h1>سلام! اینجا پروژه‌ی <span class="accent">ifn</span> است.</h1>
+            <p class="muted">
+              این یک قالب ساده و تمیز برای شروع است. فایل‌ها را داخل همین فولدر ویرایش کن و بعد روی GitHub Pages آنلاینش کن.
+            </p>
+            <div class="hero__actions">
+              <a class="btn" href="#work">دیدن بخش نمونه‌کار</a>
+              <a class="btn btn--ghost" href="#contact">راه‌های تماس</a>
+            </div>
+            <p class="tiny muted">
+              اجرا روی سیستم: فقط <code>index.html</code> را باز کن.
+            </p>
+          </div>
+
+          <div class="hero__card" role="presentation">
+            <div class="stat">
+              <div class="stat__label">وضعیت</div>
+              <div class="stat__value" id="statusText">آماده برای کدنویسی</div>
+            </div>
+            <div class="divider" aria-hidden="true"></div>
+            <div class="stat">
+              <div class="stat__label">آخرین بروزرسانی</div>
+              <div class="stat__value"><span id="buildDate">—</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container">
+          <h2>درباره</h2>
+          <p class="muted">
+            این پروژه به صورت استاتیک ساخته شده (HTML/CSS/JS) تا ساده و سریع باشد. هر زمان خواستی می‌تونیم تبدیلش کنیم به React/Vite یا Next.js.
+          </p>
+          <div class="grid">
+            <article class="card">
+              <h3>ساده</h3>
+              <p class="muted">بدون نیاز به سرور. مناسب برای GitHub Pages.</p>
+            </article>
+            <article class="card">
+              <h3>ریسپانسیو</h3>
+              <p class="muted">قابل استفاده روی موبایل و دسکتاپ.</p>
+            </article>
+            <article class="card">
+              <h3>قابل توسعه</h3>
+              <p class="muted">ساختار فایل‌ها آماده‌ی اضافه کردن بخش‌های بیشتر است.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="work">
+        <div class="container">
+          <h2>نمونه‌کار</h2>
+          <p class="muted">این کارت‌ها را با پروژه‌های خودت جایگزین کن.</p>
+          <div class="grid">
+            <article class="card">
+              <h3>پروژه ۱</h3>
+              <p class="muted">توضیح کوتاه درباره پروژه. لینک، تکنولوژی‌ها، نتیجه.</p>
+              <div class="card__actions">
+                <a class="link" href="#" aria-disabled="true">دمو</a>
+                <a class="link" href="#" aria-disabled="true">کد</a>
+              </div>
+            </article>
+            <article class="card">
+              <h3>پروژه ۲</h3>
+              <p class="muted">توضیح کوتاه درباره پروژه. لینک، تکنولوژی‌ها، نتیجه.</p>
+              <div class="card__actions">
+                <a class="link" href="#" aria-disabled="true">دمو</a>
+                <a class="link" href="#" aria-disabled="true">کد</a>
+              </div>
+            </article>
+            <article class="card">
+              <h3>پروژه ۳</h3>
+              <p class="muted">توضیح کوتاه درباره پروژه. لینک، تکنولوژی‌ها، نتیجه.</p>
+              <div class="card__actions">
+                <a class="link" href="#" aria-disabled="true">دمو</a>
+                <a class="link" href="#" aria-disabled="true">کد</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container">
+          <h2>تماس</h2>
+          <p class="muted">ایمیل/شبکه اجتماعی را اینجا بگذار.</p>
+
+          <div class="contact">
+            <div class="contact__row">
+              <div class="contact__label">ایمیل</div>
+              <div class="contact__value">
+                <code id="emailText">you@example.com</code>
+              </div>
+              <button class="btn btn--ghost" id="copyEmail" type="button">کپی</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="muted">© <span id="year"></span> ifn</div>
+        <div class="muted tiny">ساخته شده با HTML/CSS/JS</div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
