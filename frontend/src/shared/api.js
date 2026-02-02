@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const baseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080';
+// In production (e.g. GitHub Pages), you usually deploy the backend separately and set VITE_API_BASE_URL.
+// If not set, we fall back to same-origin (relative requests).
+const baseURL = import.meta.env.VITE_API_BASE_URL || '';
 
 export const api = axios.create({
   baseURL,
@@ -8,4 +10,3 @@ export const api = axios.create({
     'Content-Type': 'application/json'
   }
 });
-

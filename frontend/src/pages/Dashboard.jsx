@@ -7,7 +7,11 @@ import { useSocket } from '../shared/useSocket.js';
 
 export default function Dashboard() {
   const { t } = useTranslation();
-  const { socket, connected } = useSocket({ enabled: true });
+  const apiBase = import.meta.env.VITE_API_BASE_URL || '';
+  const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  const realtimeEnabled = Boolean(apiBase) || isLocal;
+
+  const { socket, connected } = useSocket({ enabled: realtimeEnabled });
   const [log, setLog] = useState([]);
   const [output, setOutput] = useState('');
   const [status, setStatus] = useState('idle');
@@ -22,7 +26,7 @@ export default function Dashboard() {
   const tones = useMemo(() => ['Confident', 'Friendly', 'Premium', 'Direct'], []);
 
   useEffect(() => {
-    socket.connect();
+    if (realtimeEnabled) socket.connect();
     function onProgress(evt) {
       setLog((s) => [`${new Date().toLocaleTimeString()} — ${evt.message}`, ...s].slice(0, 50));
     }
@@ -33,11 +37,11 @@ export default function Dashboard() {
     socket.on('ai:progress', onProgress);
     socket.on('ai:result', onResult);
     return () => {
-      socket.disconnect();
+      if (realtimeEnabled) socket.disconnect();
       socket.off('ai:progress', onProgress);
       socket.off('ai:result', onResult);
     };
-  }, [socket]);
+  }, [socket, realtimeEnabled]);
 
   async function onGenerate(e) {
     e.preventDefault();
@@ -45,7 +49,7 @@ export default function Dashboard() {
     setStatus('generating');
     setLog((s) => [`${new Date().toLocaleTimeString()} — queued`, ...s].slice(0, 50));
 
-    const socketId = socket.id;
+    const socketId = realtimeEnabled ? socket.id : undefined;
     try {
       const res = await api.post('/api/ai/generate-ad', { ...form, socketId });
       if (res.data?.adText) {
@@ -108,6 +112,7 @@ export default function Dashboard() {
                   type="button"
                   onClick={() => (connected ? socket.disconnect() : socket.connect())}
                   aria-label={connected ? t('dashboard.disconnect') : t('dashboard.connect')}
+                  disabled={!realtimeEnabled}
                 >
                   {connected ? t('dashboard.disconnect') : t('dashboard.connect')}
                 </button>
@@ -115,6 +120,12 @@ export default function Dashboard() {
                   Socket: {connected ? 'connected' : 'disconnected'}
                 </span>
               </div>
+
+              {!realtimeEnabled ? (
+                <div className="muted" style={{ marginTop: 12 }}>
+                  Tip: deploy the backend and set <code>VITE_API_BASE_URL</code> in <code>frontend/.env</code> to enable live updates.
+                </div>
+              ) : null}
 
               <div style={{ marginTop: 18 }}>
                 <div style={{ fontWeight: 900, marginBottom: 8 }}>{t('dashboard.outputTitle')}</div>
