@@ -1,18 +1,14 @@
-# IFN — AI Advertising (React + Express + Mongo + Socket.io)
+# IFN — AI Customer Acquisition Landing (React + Tailwind)
 
-Full-stack demo for an AI-powered advertising website:
+Responsive, production-ready landing page for an AI customer acquisition chatbot.
 
-- Frontend: React (Vite) SPA with bilingual i18n (English + Arabic RTL)
-- Backend: Node.js + Express
-- Database: MongoDB (Mongoose) for inquiries/campaigns/users
-- Real-time: Socket.io live progress updates (AI generation simulation)
-- Animations: Framer Motion
-- SEO: React Helmet
+- Frontend: React (Vite) + Tailwind CSS + Framer Motion animations + React Helmet SEO
+- Backend (optional): Node.js + Express + MongoDB to capture demo requests (`/api/inquiries`)
 
 ## Repo structure
 
-- `frontend/` React SPA
-- `backend/` Express API + Socket.io + Mongo models
+- `frontend/` React landing page
+- `backend/` Express API + Mongo models (optional)
 
 ## Local setup
 
@@ -23,7 +19,20 @@ cd C:\Users\Administrator\Desktop\ifn
 npm install
 ```
 
-### 2) Backend env
+### 2) Run frontend
+
+```powershell
+cd C:\Users\Administrator\Desktop\ifn
+npm run dev --workspace frontend
+```
+
+Open:
+
+- `http://localhost:5173`
+
+### 3) (Optional) Run backend for form submissions
+
+The landing page can submit demo requests to `POST /api/inquiries`.
 
 Copy and edit:
 
@@ -37,79 +46,39 @@ CLIENT_ORIGIN=http://localhost:5173
 MONGODB_URI=mongodb://127.0.0.1:27017/ifn
 ```
 
-### 3) Start MongoDB
-
-If you already have MongoDB running locally, you can skip this.
-
-### 4) Run dev servers
-
-Backend (port 8080) and frontend (port 5173):
+Start MongoDB (if not already running), then:
 
 ```powershell
 cd C:\Users\Administrator\Desktop\ifn
-npm run dev:win
-```
-
-Or run them separately:
-
-```powershell
 npm run dev --workspace backend
-npm run dev --workspace frontend
 ```
-
-Frontend will be at:
-
-- `http://localhost:5173`
 
 Backend health check:
 
 - `http://localhost:8080/api/health`
-
-## Features to try
-
-- Language switcher (EN/AR) in navbar/footer (RTL/LTR toggles automatically)
-- Services flip-cards + FAQ accordion
-- Contact form → saves inquiry in MongoDB (`POST /api/inquiries`)
-- AI Dashboard → click “Generate ad” and watch live progress via Socket.io (`/api/ai/generate-ad`)
 
 ## GitHub Pages
 
 This repo is configured to deploy the **frontend only** to GitHub Pages via GitHub Actions.
 
 - The workflow builds `frontend/` and deploys `frontend/dist`.
-- Because GitHub Pages can’t run Node/Express, the backend must be deployed separately.
+- Because GitHub Pages can’t run Node/Express, deploy the backend separately if you want the demo form to save into MongoDB.
 
 Your site (repo = `ifn`) will be:
 
 - `https://luckasgh9170.github.io/ifn/`
 
-## Deploy (recommended)
+## Deploy backend (optional)
 
-### Frontend
-
-- Netlify / Vercel
-  - Build: `npm run build --workspace frontend`
-  - Output: `frontend/dist`
-  - Env: `VITE_API_BASE_URL=https://<your-backend-domain>`
-
-### Backend
-
-You can deploy the backend to Render / Railway / Heroku-like platforms:
+Deploy the backend to Render / Railway / similar platforms:
 
 - Start command: `npm run start --workspace backend`
 - Env vars:
   - `PORT`
   - `CLIENT_ORIGIN` (your frontend URL)
   - `MONGODB_URI`
-  - `OPENAI_API_KEY` (optional placeholder)
+Then set `frontend/.env`:
 
-## API quick reference
-
-- `GET /api/health`
-- `POST /api/inquiries`
-- `GET /api/inquiries`
-- `POST /api/ai/generate-ad` (emits `ai:progress` + `ai:result` over Socket.io)
-- `GET /api/campaigns`
-- `POST /api/campaigns`
-- `PATCH /api/campaigns/:id/status`
-
+```env
+VITE_API_BASE_URL=https://<your-backend-domain>
+```
