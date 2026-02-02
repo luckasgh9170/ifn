@@ -1,0 +1,133 @@
+{
+  "a11y": {
+    "primaryNav": "Primary navigation",
+    "languageSwitcher": "Language switcher",
+    "socialLinks": "Social links",
+    "faq": "Frequently asked questions",
+    "testimonials": "Testimonials",
+    "openChat": "Open live updates panel",
+    "closeChat": "Close live updates panel"
+  },
+  "nav": {
+    "services": "Services",
+    "about": "About",
+    "blog": "Blog",
+    "contact": "Contact",
+    "dashboard": "AI Dashboard",
+    "cta": "Get a proposal"
+  },
+  "footer": {
+    "tagline": "AI-powered ads. Real-time insights. Better ROI.",
+    "rights": "All rights reserved."
+  },
+  "home": {
+    "chip": "AI Advertising Studio",
+    "title": "Launch smarter campaigns with AI-powered advertising",
+    "subtitle": "Target the right audience, generate high-performing creatives, and monitor results in real time — all in one sleek platform.",
+    "primaryCta": "Try AI Ad Generator",
+    "secondaryCta": "Explore services",
+    "kpis": {
+      "k1": "Faster creative iterations",
+      "k2": "Real-time campaign signals",
+      "k3": "Bilingual experiences (EN/AR)"
+    }
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "Everything you need to build, launch, and optimize AI-powered advertising.",
+    "cards": {
+      "targeting": {
+        "title": "AI Targeting",
+        "front": "Find your best audience segments.",
+        "back": "Predictive segments, lookalikes, and intent signals with explainable insights."
+      },
+      "creative": {
+        "title": "Creative Generation",
+        "front": "Generate ad copy & concepts.",
+        "back": "Headline variants, CTAs, and multi-format creatives with brand tone controls."
+      },
+      "analytics": {
+        "title": "Analytics & Optimization",
+        "front": "Track, learn, improve.",
+        "back": "Experimentation, lift measurement, and recommendations based on your KPIs."
+      }
+    },
+    "faqTitle": "FAQ",
+    "faq": [
+      {
+        "q": "Is this a real AI system?",
+        "a": "This demo simulates AI generation and includes placeholders for OpenAI (or similar) APIs in the backend."
+      },
+      {
+        "q": "Does RTL work perfectly for Arabic?",
+        "a": "Yes. The UI toggles direction and uses RTL-friendly spacing and alignment across all sections."
+      },
+      {
+        "q": "Can I store leads and campaigns?",
+        "a": "Yes. The backend uses MongoDB via Mongoose with models for inquiries, users, and campaigns."
+      }
+    ]
+  },
+  "about": {
+    "title": "About us",
+    "subtitle": "We build AI-native advertising tools with a focus on performance, privacy, and great UX.",
+    "teamTitle": "Team",
+    "team": [
+      { "name": "Amina", "role": "Growth Strategist" },
+      { "name": "Omar", "role": "ML Engineer" },
+      { "name": "Layla", "role": "Product Designer" }
+    ]
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Insights on AI in advertising, creative strategy, and measurement.",
+    "readMore": "Read more",
+    "posts": [
+      {
+        "title": "How AI changes ad targeting",
+        "excerpt": "From broad audiences to intent signals: modern targeting is becoming more adaptive.",
+        "date": "2026-02-02"
+      },
+      {
+        "title": "Creative iteration at scale",
+        "excerpt": "Generate variations, validate quickly, and keep brand voice consistent.",
+        "date": "2026-01-18"
+      },
+      {
+        "title": "Real-time analytics with event streams",
+        "excerpt": "Why streaming metrics helps teams react faster and improve ROI.",
+        "date": "2026-01-03"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Tell us about your goals and we’ll get back to you.",
+    "name": "Name",
+    "email": "Email",
+    "company": "Company",
+    "message": "Message",
+    "send": "Send",
+    "sending": "Sending…",
+    "success": "Thanks! We received your message.",
+    "error": "Something went wrong. Please try again.",
+    "mapTitle": "Map"
+  },
+  "dashboard": {
+    "title": "AI Ad Dashboard",
+    "subtitle": "Simulate AI ad generation and watch live updates via Socket.io.",
+    "form": {
+      "product": "Product",
+      "audience": "Audience",
+      "goal": "Goal",
+      "tone": "Tone",
+      "generate": "Generate ad",
+      "generating": "Generating…"
+    },
+    "outputTitle": "Generated ad",
+    "liveTitle": "Live updates",
+    "connect": "Connect",
+    "disconnect": "Disconnect"
+  }
+}
+
