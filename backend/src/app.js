@@ -7,6 +7,7 @@ import { connectDb } from './db.js';
 import inquiriesRouter from './routes/inquiries.js';
 import campaignsRouter from './routes/campaigns.js';
 import aiRouter from './routes/ai.js';
+import adminRouter from './routes/admin.js';
 
 dotenv.config();
 
@@ -29,9 +30,9 @@ export async function createApp() {
   app.use('/api/inquiries', inquiriesRouter);
   app.use('/api/campaigns', campaignsRouter);
   app.use('/api/ai', aiRouter);
+  app.use('/api/admin', adminRouter);
 
   app.use((req, res) => res.status(404).json({ error: 'Not found' }));
 
   return { app };
 }
-
