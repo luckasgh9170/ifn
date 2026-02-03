@@ -8,7 +8,7 @@ export default function Plans() {
 
   return (
     <Section id="pricing" eyebrow={t('plans.eyebrow')} title={t('plans.title')} subtitle={t('plans.subtitle')}>
-      <div className="grid gap-4 lg:grid-cols-2">
+      <div className="grid gap-4 lg:grid-cols-3">
         {dict.plans.items.map((p) => (
           <div
             key={p.name}

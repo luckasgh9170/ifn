@@ -64,7 +64,14 @@ export default function Hero() {
               </div>
 
               <div className="mt-5 space-y-3">
-                <ChatLine who={lang === 'ar' ? 'الزائر' : 'Visitor'} text={lang === 'ar' ? 'هل يمكنكم مساعدتي في الحصول على عملاء جدد؟' : 'Can you help me find new customers?'} />
+                <ChatLine
+                  who={lang === 'ar' ? 'الزائر' : 'Visitor'}
+                  text={
+                    lang === 'ar'
+                      ? 'نساعدك بالبرمجيات والذكاء الاصطناعي على إيجاد عملاء جدد من الفضاء الرقمي.'
+                      : 'We use software and AI to help you find new customers from the digital space.'
+                  }
+                />
                 <ChatLine
                   who="Sellerbot AI"
                   text={

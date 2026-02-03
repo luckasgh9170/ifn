@@ -110,12 +110,41 @@ export const translations = {
     },
     plans: {
       eyebrow: 'Plans',
-      title: 'Start with a package that fits your workflow',
-      subtitle: 'Transparent, locally-priced packages based on the official store listings.',
-      note: 'Prices shown in Toman (as listed on ifncompany.ir).',
+      title: 'Choose the right package',
+      subtitle: 'Three tiers built for different outreach volumes and business stages.',
+      note: 'Prices shown in USD.',
       items: [
-        { name: 'Chatter', price: '16,698,000', unit: 'Toman', points: ['Entry package', 'Lead messaging automation', 'Best for getting started'] },
-        { name: 'Sellerbot', price: '17,998,000 – 38,898,000', unit: 'Toman', featured: true, points: ['Full customer-finder suite', 'Multiple panels/options', 'Designed for serious scaling'] }
+        {
+          name: 'Base',
+          price: '$700',
+          unit: 'USD',
+          points: [
+            'Website extractions: ___ / month',
+            'Direct messages: ___ / month',
+            'Best for early-stage outreach'
+          ]
+        },
+        {
+          name: 'Silver',
+          price: '$1000',
+          unit: 'USD',
+          points: [
+            'Website extractions: ___ / month',
+            'Direct messages: ___ / month',
+            'More channels + higher daily capacity'
+          ]
+        },
+        {
+          name: 'Gold',
+          price: '$1300',
+          unit: 'USD',
+          featured: true,
+          points: [
+            'Website extractions: ___ / month',
+            'Direct messages: ___ / month',
+            'Maximum scale + priority support'
+          ]
+        }
       ]
     },
     faq: {
@@ -275,12 +304,41 @@ export const translations = {
     },
     plans: {
       eyebrow: 'الباقات',
-      title: 'ابدأ بحزمة تناسب عملك',
-      subtitle: 'باقات واضحة وفق ما هو موجود في المتجر الرسمي.',
-      note: 'الأسعار بالتومان كما هي مذكورة على ifncompany.ir.',
+      title: 'اختر الباقة المناسبة',
+      subtitle: 'ثلاث باقات حسب حجم الاستخراج والإرسال.',
+      note: 'الأسعار بالدولار.',
       items: [
-        { name: 'Chatter', price: '16,698,000', unit: 'تومان', points: ['حزمة البداية', 'أتمتة مراسلة العملاء', 'مناسبة للانطلاق'] },
-        { name: 'Sellerbot', price: '17,998,000 – 38,898,000', unit: 'تومان', featured: true, points: ['حزمة كاملة للعثور على العملاء', 'خيارات متعددة', 'مناسبة للتوسع الجاد'] }
+        {
+          name: 'الأساسية',
+          price: '$700',
+          unit: 'دولار',
+          points: [
+            'استخراج من المواقع: ___ / شهر',
+            'رسائل دايركت: ___ / شهر',
+            'مناسبة للانطلاق'
+          ]
+        },
+        {
+          name: 'الفضية',
+          price: '$1000',
+          unit: 'دولار',
+          points: [
+            'استخراج من المواقع: ___ / شهر',
+            'رسائل دايركت: ___ / شهر',
+            'قنوات أكثر وقدرة يومية أعلى'
+          ]
+        },
+        {
+          name: 'الذهبية',
+          price: '$1300',
+          unit: 'دولار',
+          featured: true,
+          points: [
+            'استخراج من المواقع: ___ / شهر',
+            'رسائل دايركت: ___ / شهر',
+            'أقصى توسّع + دعم أولوية'
+          ]
+        }
       ]
     },
     faq: {
@@ -330,4 +388,3 @@ export const translations = {
     }
   }
 };
-
