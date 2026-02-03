@@ -5,7 +5,6 @@ import Logos from './sections/Logos.jsx';
 import Features from './sections/Features.jsx';
 import HowItWorks from './sections/HowItWorks.jsx';
 import Plans from './sections/Plans.jsx';
-import FAQ from './sections/FAQ.jsx';
 import Footer from './sections/Footer.jsx';
 import VideoGallery from './sections/VideoGallery.jsx';
 import WhatsAppCTA from './sections/WhatsAppCTA.jsx';
@@ -23,7 +22,6 @@ export default function LandingPage() {
         <HowItWorks />
         <Plans />
         <VideoGallery />
-        <FAQ />
         <WhatsAppCTA />
       </main>
       <Footer />
