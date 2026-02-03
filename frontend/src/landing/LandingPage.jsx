@@ -10,8 +10,10 @@ import Plans from './sections/Plans.jsx';
 import FAQ from './sections/FAQ.jsx';
 import FinalCTA from './sections/FinalCTA.jsx';
 import Footer from './sections/Footer.jsx';
+import useTilt from './hooks/useTilt.js';
 
 export default function LandingPage() {
+  useTilt();
   return (
     <div className="min-h-screen">
       <Navbar />

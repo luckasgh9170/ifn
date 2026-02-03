@@ -16,7 +16,8 @@ export default function HowItWorks() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.45, delay: 0.07 * idx }}
-            className="glass rounded-3xl p-6"
+            className="glass card-3d rounded-3xl p-6 tilt-root"
+            data-tilt
           >
             <div className="flex items-center gap-3">
               <div className="grid h-12 w-12 place-items-center rounded-2xl border border-white/10 bg-white/5 text-xl text-purpleGlow-300 shadow-[0_0_30px_rgba(167,139,250,0.22)]">
@@ -32,4 +33,3 @@ export default function HowItWorks() {
     </Section>
   );
 }
-

@@ -9,7 +9,7 @@ export default function UseCases() {
     <Section id="use-cases" eyebrow={t('useCases.eyebrow')} title={t('useCases.title')} subtitle={t('useCases.subtitle')}>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {dict.useCases.cards.map((c) => (
-          <article key={c.title} className="glass rounded-3xl p-6">
+          <article key={c.title} className="glass card-3d rounded-3xl p-6 tilt-root" data-tilt>
             <h3 className="text-lg font-semibold">{c.title}</h3>
             <ul className="mt-3 space-y-2 text-sm text-white/70">
               {c.points.map((p) => (

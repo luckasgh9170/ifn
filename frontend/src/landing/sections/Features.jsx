@@ -17,7 +17,8 @@ export default function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.45, delay: 0.05 * idx }}
-            className="group glass rounded-3xl p-6 transition hover:bg-white/10"
+            className="group glass card-3d rounded-3xl p-6 transition hover:bg-white/10 tilt-root"
+            data-tilt
           >
             <div className="flex items-start justify-between gap-4">
               <h3 className="text-lg font-semibold tracking-tight">{f.title}</h3>
@@ -37,4 +38,3 @@ export default function Features() {
     </Section>
   );
 }
-

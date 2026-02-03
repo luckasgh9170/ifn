@@ -52,8 +52,8 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="relative">
-            <div className="glass glow-ring rounded-3xl p-6">
+          <div className="relative tilt-root">
+            <div className="glass glow-ring card-3d rounded-3xl p-6" data-tilt>
               <div className="flex items-center justify-between">
                 <div className="text-sm font-semibold text-white">{t('brand.tagline')}</div>
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/80">
@@ -124,4 +124,3 @@ function Metric({ label, value }) {
     </div>
   );
 }
-

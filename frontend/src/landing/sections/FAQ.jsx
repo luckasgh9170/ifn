@@ -8,8 +8,10 @@ export default function FAQ() {
 
   return (
     <Section id="faq" eyebrow={t('faq.eyebrow')} title={t('faq.title')} subtitle={t('faq.subtitle')}>
-      <div className="mx-auto max-w-3xl">
-        <Accordion items={dict.faq.items} />
+      <div className="mx-auto max-w-3xl tilt-root">
+        <div className="card-3d rounded-3xl" data-tilt>
+          <Accordion items={dict.faq.items} />
+        </div>
       </div>
     </Section>
   );

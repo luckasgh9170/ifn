@@ -10,7 +10,11 @@ export default function Plans() {
     <Section id="pricing" eyebrow={t('plans.eyebrow')} title={t('plans.title')} subtitle={t('plans.subtitle')}>
       <div className="grid gap-4 lg:grid-cols-2">
         {dict.plans.items.map((p) => (
-          <div key={p.name} className={`rounded-3xl p-6 ${p.featured ? 'glass glow-ring border border-purpleGlow-400/30' : 'glass'}`}>
+          <div
+            key={p.name}
+            className={`rounded-3xl p-6 tilt-root card-3d ${p.featured ? 'glass glow-ring border border-purpleGlow-400/30' : 'glass'}`}
+            data-tilt
+          >
             <div className="flex items-center justify-between">
               <div className="text-lg font-semibold">{p.name}</div>
               {p.featured ? (

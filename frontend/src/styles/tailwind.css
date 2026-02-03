@@ -18,5 +18,28 @@
   .glow-ring {
     box-shadow: 0 0 0 1px rgba(167, 139, 250, 0.18), 0 30px 90px rgba(0, 0, 0, 0.65);
   }
+  .card-3d {
+    transform-style: preserve-3d;
+    transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
+    will-change: transform;
+  }
+  .card-3d::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(400px 240px at 20% 10%, rgba(196, 181, 253, 0.18), transparent 60%);
+    opacity: 0;
+    transition: opacity 200ms ease;
+    pointer-events: none;
+  }
+  .card-3d:hover::before {
+    opacity: 1;
+  }
+  .card-3d:hover {
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+  }
+  .tilt-root {
+    perspective: 900px;
+  }
 }
-
