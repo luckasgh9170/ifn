@@ -1,8 +1,9 @@
 # IFN — AI Customer Acquisition Landing (React + Tailwind)
 
-Responsive, production-ready landing page for an AI customer acquisition chatbot.
+Responsive, production-ready landing page for an AI customer acquisition chatbot, using content extracted from ifncompany.ir and translated to EN/AR.
 
 - Frontend: React (Vite) + Tailwind CSS + Framer Motion animations + React Helmet SEO
+- Bilingual content: English + Arabic (RTL/LTR toggle)
 - Backend (optional): Node.js + Express + MongoDB to capture demo requests (`/api/inquiries`)
 
 ## Repo structure
@@ -77,8 +78,10 @@ Deploy the backend to Render / Railway / similar platforms:
   - `PORT`
   - `CLIENT_ORIGIN` (your frontend URL)
   - `MONGODB_URI`
+
 Then set `frontend/.env`:
 
 ```env
 VITE_API_BASE_URL=https://<your-backend-domain>
 ```
+

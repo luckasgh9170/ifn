@@ -1,44 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Section from '../components/Section.jsx';
-
-const features = [
-  {
-    title: 'AI prospecting that matches your ICP',
-    desc: 'Define your ideal customer profile once. IFN finds lookalike accounts and decision-makers, prioritizes by intent signals, and builds a clean list you can trust.'
-  },
-  {
-    title: 'Personalized outreach at scale',
-    desc: 'Generate high-quality opening messages and follow-ups that sound human. The chatbot adapts tone, channel, and language while staying on-brand.'
-  },
-  {
-    title: 'Lead qualification, automatically',
-    desc: 'Ask the questions your team would ask: budget, timeline, requirements, region, and buying role. Only qualified leads get routed to sales.'
-  },
-  {
-    title: 'Multi-platform conversations',
-    desc: 'Engage prospects where they are: website chat, email, WhatsApp, Instagram, LinkedIn. Keep context across channels so buyers never repeat themselves.'
-  },
-  {
-    title: 'Analytics you can act on',
-    desc: 'See reply rates, qualification rates, pipeline impact, and attribution. Identify the top-performing segments and scale what’s working.'
-  },
-  {
-    title: 'Security + governance built-in',
-    desc: 'Control prompts, guardrails, and escalation logic. Log conversations, redact sensitive fields, and stay compliant as you scale globally.'
-  }
-];
+import { useLang } from '../i18n/LangProvider.jsx';
 
 export default function Features() {
+  const { dict, t, lang } = useLang();
+  const arrow = lang === 'ar' ? '←' : '→';
+
   return (
-    <Section
-      id="features"
-      eyebrow="What you get"
-      title="A complete AI customer acquisition engine"
-      subtitle="Not just a chatbot. IFN is an end-to-end system that discovers prospects, starts conversations, qualifies opportunities, and measures ROI."
-    >
+    <Section id="features" eyebrow={t('features.eyebrow')} title={t('features.title')} subtitle={t('features.subtitle')}>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {features.map((f, idx) => (
+        {dict.features.items.map((f, idx) => (
           <motion.article
             key={f.title}
             initial={{ opacity: 0, y: 14 }}
@@ -56,7 +28,8 @@ export default function Features() {
             <p className="mt-3 text-sm leading-relaxed text-white/70">{f.desc}</p>
             <div className="mt-5 h-px w-full bg-gradient-to-r from-purpleGlow-400/40 via-white/10 to-transparent" aria-hidden="true" />
             <div className="mt-4 text-sm font-semibold text-white/80">
-              Learn more <span className="transition group-hover:translate-x-0.5" aria-hidden="true">→</span>
+              <span className="sr-only">Learn more</span>
+              <span aria-hidden="true">{arrow}</span>
             </div>
           </motion.article>
         ))}

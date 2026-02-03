@@ -21,6 +21,9 @@ build/
 frontend/dist/
 frontend/build/
 
+# Source crawl (local only)
+_source_ifncompany/
+
 # IDE
 .vscode/
 .idea/

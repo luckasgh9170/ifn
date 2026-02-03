@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import Container from './Container.jsx';
 import { Button } from './Button.jsx';
-
-const links = [
-  { href: '#features', label: 'Features' },
-  { href: '#how', label: 'How it works' },
-  { href: '#use-cases', label: 'Use cases' },
-  { href: '#pricing', label: 'Plans' },
-  { href: '#faq', label: 'FAQ' }
-];
+import { useLang } from '../i18n/LangProvider.jsx';
 
 export default function Navbar() {
+  const { lang, setLang, t } = useLang();
   const [open, setOpen] = useState(false);
+
+  const links = [
+    { href: '#features', label: t('nav.features') },
+    { href: '#how', label: t('nav.how') },
+    { href: '#use-cases', label: t('nav.useCases') },
+    { href: '#pricing', label: t('nav.plans') },
+    { href: '#faq', label: t('nav.faq') }
+  ];
 
   useEffect(() => {
     function onKeyDown(e) {
@@ -28,8 +30,8 @@ export default function Navbar() {
           <span className="grid h-9 w-9 place-items-center rounded-xl bg-white/5 ring-1 ring-white/10 shadow-glow">
             <span className="h-2.5 w-2.5 rounded-full bg-purpleGlow-400 shadow-[0_0_18px_rgba(167,139,250,0.8)]" aria-hidden="true" />
           </span>
-          <span className="text-white">IFN</span>
-          <span className="hidden text-white/60 sm:inline">AI Customer Acquisition</span>
+          <span className="text-white">Sellerbot</span>
+          <span className="hidden text-white/60 sm:inline">{t('brand.byline')}</span>
         </a>
 
         <nav className="hidden items-center gap-1 md:flex" aria-label="Primary">
@@ -45,11 +47,27 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button as="a" href="#demo" variant="secondary" className="hidden md:inline-flex">
-            See it in action
-          </Button>
+          <div className="hidden items-center gap-1 rounded-xl border border-white/10 bg-white/5 p-1 md:flex" role="group" aria-label="Language">
+            <button
+              type="button"
+              onClick={() => setLang('en')}
+              className={`rounded-lg px-2.5 py-2 text-xs font-semibold transition ${lang === 'en' ? 'bg-white/10 text-white' : 'text-white/70 hover:text-white'}`}
+              aria-pressed={lang === 'en'}
+            >
+              EN
+            </button>
+            <button
+              type="button"
+              onClick={() => setLang('ar')}
+              className={`rounded-lg px-2.5 py-2 text-xs font-semibold transition ${lang === 'ar' ? 'bg-white/10 text-white' : 'text-white/70 hover:text-white'}`}
+              aria-pressed={lang === 'ar'}
+            >
+              AR
+            </button>
+          </div>
+
           <Button as="a" href="#demo">
-            Book a Demo
+            {t('nav.demo')}
           </Button>
           <button
             type="button"
@@ -67,17 +85,36 @@ export default function Navbar() {
         <div className="md:hidden">
           <Container className="pb-4">
             <div className="glass rounded-2xl p-3">
+              <div className="flex items-center justify-between gap-3 px-1 pb-2">
+                <div className="text-sm font-semibold text-white/80">Language</div>
+                <div className="flex items-center gap-1 rounded-xl border border-white/10 bg-white/5 p-1">
+                  <button
+                    type="button"
+                    onClick={() => setLang('en')}
+                    className={`rounded-lg px-2.5 py-2 text-xs font-semibold transition ${lang === 'en' ? 'bg-white/10 text-white' : 'text-white/70 hover:text-white'}`}
+                    aria-pressed={lang === 'en'}
+                  >
+                    EN
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setLang('ar')}
+                    className={`rounded-lg px-2.5 py-2 text-xs font-semibold transition ${lang === 'ar' ? 'bg-white/10 text-white' : 'text-white/70 hover:text-white'}`}
+                    aria-pressed={lang === 'ar'}
+                  >
+                    AR
+                  </button>
+                </div>
+              </div>
               <div className="grid gap-1">
                 {links.map((l) => (
-                  <a
-                    key={l.href}
-                    href={l.href}
-                    className="rounded-xl px-3 py-2 text-sm text-white/80 hover:bg-white/10"
-                    onClick={() => setOpen(false)}
-                  >
+                  <a key={l.href} href={l.href} className="rounded-xl px-3 py-2 text-sm text-white/80 hover:bg-white/10" onClick={() => setOpen(false)}>
                     {l.label}
                   </a>
                 ))}
+                <a href="#demo" className="rounded-xl px-3 py-2 text-sm font-semibold text-white hover:bg-white/10" onClick={() => setOpen(false)}>
+                  {t('nav.demo')}
+                </a>
               </div>
             </div>
           </Container>

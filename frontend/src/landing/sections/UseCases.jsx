@@ -1,43 +1,14 @@
 import React from 'react';
 import Section from '../components/Section.jsx';
-
-const cases = [
-  {
-    title: 'B2B SaaS',
-    points: ['Outbound + inbound qualification', 'Pipeline creation for sales teams', 'Book demos automatically']
-  },
-  {
-    title: 'Agencies',
-    points: ['Qualify leads before sales calls', 'Scale prospecting for clients', 'Prove ROI with reporting']
-  },
-  {
-    title: 'eCommerce',
-    points: ['Recover abandoned sessions', 'Answer product questions instantly', 'Turn support into revenue']
-  },
-  {
-    title: 'Local services',
-    points: ['Capture phone/email instantly', 'Schedule appointments 24/7', 'Pre-qualify by location & budget']
-  },
-  {
-    title: 'Enterprise',
-    points: ['Guardrails + governance', 'Regional messaging', 'Integrations + analytics']
-  },
-  {
-    title: 'Marketplaces',
-    points: ['Onboard and activate suppliers', 'Qualify high-value partners', 'Reduce manual ops load']
-  }
-];
+import { useLang } from '../i18n/LangProvider.jsx';
 
 export default function UseCases() {
+  const { dict, t } = useLang();
+
   return (
-    <Section
-      id="use-cases"
-      eyebrow="Use cases"
-      title="Built for teams that want predictable growth"
-      subtitle="Whether you sell software, services, or products — IFN helps you create conversations that convert."
-    >
+    <Section id="use-cases" eyebrow={t('useCases.eyebrow')} title={t('useCases.title')} subtitle={t('useCases.subtitle')}>
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {cases.map((c) => (
+        {dict.useCases.cards.map((c) => (
           <article key={c.title} className="glass rounded-3xl p-6">
             <h3 className="text-lg font-semibold">{c.title}</h3>
             <ul className="mt-3 space-y-2 text-sm text-white/70">
@@ -56,4 +27,3 @@ export default function UseCases() {
     </Section>
   );
 }
-

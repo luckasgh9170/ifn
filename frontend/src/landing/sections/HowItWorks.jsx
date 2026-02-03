@@ -1,35 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Section from '../components/Section.jsx';
-
-const steps = [
-  {
-    title: 'Define your targets',
-    desc: 'Set your ideal customer profile, regions, platforms, and guardrails. IFN learns your positioning, objection-handling, and conversion goals.',
-    icon: '◎'
-  },
-  {
-    title: 'Launch autonomous outreach',
-    desc: 'IFN identifies prospects, starts conversations across channels, and follows up with natural, personalized messages until a clear outcome is reached.',
-    icon: '⟡'
-  },
-  {
-    title: 'Convert with qualification + routing',
-    desc: 'When a prospect meets your criteria, IFN captures details, updates your CRM, and books a demo — or escalates to a human when needed.',
-    icon: '⬡'
-  }
-];
+import { useLang } from '../i18n/LangProvider.jsx';
 
 export default function HowItWorks() {
+  const { dict, t } = useLang();
+
   return (
-    <Section
-      id="how"
-      eyebrow="How it works"
-      title="A simple workflow that scales worldwide"
-      subtitle="From first touch to booked meeting, IFN runs a repeatable acquisition loop — with the analytics to prove impact."
-    >
+    <Section id="how" eyebrow={t('how.eyebrow')} title={t('how.title')} subtitle={t('how.subtitle')}>
       <div className="grid gap-4 lg:grid-cols-3">
-        {steps.map((s, idx) => (
+        {dict.how.steps.map((s, idx) => (
           <motion.div
             key={s.title}
             initial={{ opacity: 0, y: 12 }}

@@ -3,14 +3,14 @@ import { motion } from 'framer-motion';
 import Section from '../components/Section.jsx';
 import { Button } from '../components/Button.jsx';
 import { api } from '../../shared/api.js';
+import { useLang } from '../i18n/LangProvider.jsx';
 
 export default function FinalCTA() {
+  const { dict, t } = useLang();
   const [status, setStatus] = useState('idle');
   const [form, setForm] = useState({ name: '', email: '', company: '' });
 
-  const isLocal = useMemo(() => {
-    return window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-  }, []);
+  const isLocal = useMemo(() => window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1', []);
   const hasApiBase = Boolean(import.meta.env.VITE_API_BASE_URL) || isLocal;
 
   async function onSubmit(e) {
@@ -31,22 +31,12 @@ export default function FinalCTA() {
   }
 
   return (
-    <Section
-      id="demo"
-      eyebrow="Book a demo"
-      title="Turn anonymous traffic into qualified pipeline — automatically."
-      subtitle="Share a few details and we’ll show you how IFN can engage prospects across platforms, qualify them reliably, and prove ROI."
-    >
+    <Section id="demo" eyebrow={t('finalCta.eyebrow')} title={t('finalCta.title')} subtitle={t('finalCta.subtitle')}>
       <div className="mx-auto grid max-w-5xl gap-6 lg:grid-cols-2">
         <div className="glass rounded-3xl p-7">
-          <div className="text-sm font-semibold text-white">What you’ll see in the demo</div>
+          <div className="text-sm font-semibold text-white">{t('finalCta.demoBulletsTitle')}</div>
           <ul className="mt-4 space-y-3 text-sm text-white/70">
-            {[
-              'A real qualification flow: budget, timeline, region, decision-maker status',
-              'Multi-platform messaging strategy (web, email, WhatsApp, LinkedIn)',
-              'Routing + scheduling: only qualified leads hit your calendar',
-              'Analytics: conversion rate, attribution, and measurable ROI'
-            ].map((x) => (
+            {dict.finalCta.bullets.map((x) => (
               <li key={x} className="flex gap-3">
                 <span className="mt-0.5 text-purpleGlow-300" aria-hidden="true">
                   ✓
@@ -57,9 +47,16 @@ export default function FinalCTA() {
           </ul>
 
           <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-white/70">
-            <div className="font-semibold text-white">Fast implementation</div>
-            <div className="mt-1">
-              Most teams ship their first playbook in days — then iterate weekly as the chatbot learns what converts best.
+            <div className="font-semibold text-white">{t('finalCta.contact.title')}</div>
+            <div className="mt-2 space-y-1">
+              <div>{t('finalCta.contact.address')}</div>
+              <div>{t('finalCta.contact.hours')}</div>
+              <div>
+                <span className="text-white/80">{t('finalCta.contact.phone')}</span>
+              </div>
+              <div>
+                <span className="text-white/80">{t('finalCta.contact.telegram')}</span>
+              </div>
             </div>
           </div>
         </div>
@@ -74,7 +71,7 @@ export default function FinalCTA() {
           aria-label="Book a demo form"
         >
           <div className="grid gap-4">
-            <Field label="Name" id="name">
+            <Field label={t('finalCta.form.name')} id="name">
               <input
                 id="name"
                 required
@@ -86,7 +83,7 @@ export default function FinalCTA() {
               />
             </Field>
 
-            <Field label="Work email" id="email">
+            <Field label={t('finalCta.form.email')} id="email">
               <input
                 id="email"
                 type="email"
@@ -99,7 +96,7 @@ export default function FinalCTA() {
               />
             </Field>
 
-            <Field label="Company" id="company">
+            <Field label={t('finalCta.form.company')} id="company">
               <input
                 id="company"
                 required
@@ -114,27 +111,26 @@ export default function FinalCTA() {
 
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <Button type="submit" className="w-full sm:w-auto" disabled={status === 'sending'}>
-              {status === 'sending' ? 'Submitting…' : 'Book a Demo'}
+              {status === 'sending' ? t('finalCta.form.submitting') : t('finalCta.form.submit')}
             </Button>
-            <span className="text-sm text-white/60">
-              Response within 1 business day.
-            </span>
+            <span className="text-sm text-white/60">{t('finalCta.subtitle')}</span>
           </div>
 
           {status === 'success' ? (
             <div className="mt-4 rounded-2xl border border-emerald-400/20 bg-emerald-400/10 p-4 text-sm text-white">
-              Thanks — we received your request. We’ll reach out shortly.
+              {t('finalCta.form.success')}
             </div>
           ) : null}
           {status === 'error' ? (
             <div className="mt-4 rounded-2xl border border-rose-400/20 bg-rose-400/10 p-4 text-sm text-white">
-              Something went wrong. {hasApiBase ? 'Please try again.' : 'Deploy the backend and set VITE_API_BASE_URL to enable form submissions.'}
+              {hasApiBase ? t('finalCta.form.errorTryAgain') : t('finalCta.form.errorNoApi')}
             </div>
           ) : null}
 
           {!hasApiBase ? (
             <div className="mt-4 text-xs text-white/55">
-              Heads up: GitHub Pages can’t run the backend. Deploy the API and set <code className="rounded bg-white/10 px-1.5 py-0.5">VITE_API_BASE_URL</code>.
+              Heads up: GitHub Pages can’t run the backend. Deploy the API and set{' '}
+              <code className="rounded bg-white/10 px-1.5 py-0.5">VITE_API_BASE_URL</code>.
             </div>
           ) : null}
         </motion.form>
@@ -151,4 +147,3 @@ function Field({ label, id, children }) {
     </label>
   );
 }
-

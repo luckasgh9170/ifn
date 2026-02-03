@@ -4,45 +4,39 @@ import Container from '../components/Container.jsx';
 import Badge from '../components/Badge.jsx';
 import { Button } from '../components/Button.jsx';
 import FloatingIcons from '../components/FloatingIcons.jsx';
+import { useLang } from '../i18n/LangProvider.jsx';
 
 export default function Hero() {
+  const { dict, t, lang } = useLang();
+  const arrow = lang === 'ar' ? '←' : '→';
+
   return (
     <section className="relative overflow-hidden py-16 sm:py-24">
       <FloatingIcons />
       <Container>
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div>
-            <Badge>AI chatbot • Prospecting • Qualification • Global outreach</Badge>
-            <h1 className="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
-              An AI chatbot that finds customers, qualifies leads, and grows sales globally.
-            </h1>
-            <p className="mt-4 text-base leading-relaxed text-white/70 sm:text-lg">
-              IFN automates customer acquisition across the platforms where buyers actually respond — website chat, email, WhatsApp,
-              Instagram, LinkedIn, and more. It engages prospects with personalized conversations, asks the right questions, and routes
-              only qualified opportunities to your team.
-            </p>
+            <Badge>{t('hero.badge')}</Badge>
+            <h1 className="mt-5 text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">{t('hero.headline')}</h1>
+            <p className="mt-4 text-base leading-relaxed text-white/70 sm:text-lg">{t('hero.subheadline')}</p>
 
             <div className="mt-7 flex flex-wrap items-center gap-3">
               <Button as="a" href="#demo">
-                Book a Demo
+                {t('hero.primaryCta')}
               </Button>
               <Button as="a" href="#how" variant="secondary">
-                See How It Works
+                {t('hero.secondaryCta')}
               </Button>
               <a
                 href="#features"
                 className="inline-flex items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold text-white/70 transition hover:bg-white/5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purpleGlow-400 focus-visible:ring-offset-2 focus-visible:ring-offset-ink-950"
               >
-                Explore features <span aria-hidden="true">→</span>
+                {t('hero.tertiaryCta')} <span aria-hidden="true">{arrow}</span>
               </a>
             </div>
 
             <div className="mt-10 grid gap-3 sm:grid-cols-3">
-              {[
-                { k: 'Conversion lift', v: 'More qualified conversations' },
-                { k: 'Speed to lead', v: 'Instant replies, 24/7' },
-                { k: 'Measurable ROI', v: 'Attribution + analytics' }
-              ].map((x, idx) => (
+              {dict.hero.kpis.map((x, idx) => (
                 <motion.div
                   key={x.k}
                   initial={{ opacity: 0, y: 10 }}
@@ -61,7 +55,7 @@ export default function Hero() {
           <div className="relative">
             <div className="glass glow-ring rounded-3xl p-6">
               <div className="flex items-center justify-between">
-                <div className="text-sm font-semibold text-white">Live AI Qualification</div>
+                <div className="text-sm font-semibold text-white">{t('brand.tagline')}</div>
                 <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/80">
                   <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_18px_rgba(52,211,153,0.65)]" aria-hidden="true" />
                   Online
@@ -69,21 +63,36 @@ export default function Hero() {
               </div>
 
               <div className="mt-5 space-y-3">
-                <ChatLine who="Visitor" text="We’re exploring a new acquisition channel. Can you help?" />
-                <ChatLine who="IFN AI" text="Absolutely. What’s your product, ideal customer, and target region?" ai />
-                <ChatLine who="Visitor" text="B2B SaaS, mid-market. North America & GCC." />
+                <ChatLine who={lang === 'ar' ? 'الزائر' : 'Visitor'} text={lang === 'ar' ? 'هل يمكنكم مساعدتي في الحصول على عملاء جدد؟' : 'Can you help me find new customers?'} />
                 <ChatLine
-                  who="IFN AI"
-                  text="Great. I’ll build a multi-platform outreach plan, qualify by budget + timeline, and book demos automatically."
+                  who="Sellerbot AI"
+                  text={
+                    lang === 'ar'
+                      ? 'نعم. ما هو مجال عملك، جمهورك المستهدف، وما المنصات التي تفضلها؟'
+                      : 'Yes. What’s your business, target audience, and preferred platforms?'
+                  }
+                  ai
+                />
+                <ChatLine
+                  who={lang === 'ar' ? 'الزائر' : 'Visitor'}
+                  text={lang === 'ar' ? 'خدمات محلية، أراك. أريد Telegram وWhatsApp.' : 'Local services in Arak. Telegram and WhatsApp.'}
+                />
+                <ChatLine
+                  who="Sellerbot AI"
+                  text={
+                    lang === 'ar'
+                      ? 'سأستخرج جمهورًا مستهدفًا، أطلق رسائل آلية، وأؤهل العملاء ثم أسلّم لك أرقامهم لإتمام البيع.'
+                      : 'I’ll extract targeted audiences, launch automated messaging, qualify leads, and hand you phone numbers to close.'
+                  }
                   ai
                 />
               </div>
 
               <div className="mt-6 grid grid-cols-2 gap-3">
-                <Metric label="Avg. response time" value="0.6s" />
-                <Metric label="Qualification rate" value="42%" />
-                <Metric label="Meetings booked" value="+31%" />
-                <Metric label="Cost per lead" value="−18%" />
+                <Metric label={lang === 'ar' ? 'متوسط الرد' : 'Avg. response'} value="0.6s" />
+                <Metric label={lang === 'ar' ? 'تأهيل' : 'Qualification'} value="42%" />
+                <Metric label={lang === 'ar' ? 'عملاء' : 'Leads'} value="+31%" />
+                <Metric label={lang === 'ar' ? 'تكلفة' : 'Cost'} value="−18%" />
               </div>
             </div>
 
