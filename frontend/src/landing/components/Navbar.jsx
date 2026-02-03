@@ -10,9 +10,8 @@ export default function Navbar() {
   const links = [
     { href: '#features', label: t('nav.features') },
     { href: '#how', label: t('nav.how') },
-    { href: '#use-cases', label: t('nav.useCases') },
     { href: '#pricing', label: t('nav.plans') },
-    { href: '#faq', label: t('nav.faq') }
+    { href: '#videos', label: t('videos.eyebrow') }
   ];
 
   useEffect(() => {
