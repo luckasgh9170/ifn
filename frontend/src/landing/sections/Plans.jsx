@@ -27,7 +27,7 @@ export default function Plans() {
             </div>
             <ul className="mt-5 space-y-2 text-sm text-white/70">
               {p.points.map((x) => (
-                <li key={x} className="flex gap-2">
+                <li key={x} className="flex gap-2 float-item">
                   <span className="mt-0.5 text-purpleGlow-300" aria-hidden="true">
                     ✓
                   </span>

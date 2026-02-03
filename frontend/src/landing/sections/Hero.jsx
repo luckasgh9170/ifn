@@ -43,7 +43,8 @@ export default function Hero() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-60px' }}
                   transition={{ duration: 0.45, delay: 0.06 * idx }}
-                  className="glass rounded-2xl p-4"
+                  className="glass card-3d rounded-2xl p-4 tilt-root"
+                  data-tilt
                 >
                   <div className="text-sm font-semibold text-white">{x.k}</div>
                   <div className="mt-1 text-sm text-white/70">{x.v}</div>

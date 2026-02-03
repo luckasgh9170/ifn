@@ -25,6 +25,11 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-ink-950/55 backdrop-blur-xl">
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute -top-24 left-10 h-48 w-48 rounded-full bg-purpleGlow-400/20 blur-3xl" />
+        <div className="absolute -top-16 right-16 h-40 w-40 rounded-full bg-purpleGlow-300/20 blur-3xl" />
+        <div className="absolute inset-0 opacity-[0.12] [background:radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.12)_1px,transparent_0)_0_0/22px_22px]" />
+      </div>
       <Container className="flex items-center justify-between py-3">
         <a href="#" className="group inline-flex items-center gap-3 font-semibold tracking-tight">
           <span className="grid h-9 w-9 place-items-center rounded-xl bg-white/5 ring-1 ring-white/10 shadow-glow">
@@ -123,4 +128,3 @@ export default function Navbar() {
     </header>
   );
 }
-

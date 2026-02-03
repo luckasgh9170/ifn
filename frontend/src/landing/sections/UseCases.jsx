@@ -13,7 +13,7 @@ export default function UseCases() {
             <h3 className="text-lg font-semibold">{c.title}</h3>
             <ul className="mt-3 space-y-2 text-sm text-white/70">
               {c.points.map((p) => (
-                <li key={p} className="flex gap-2">
+                <li key={p} className="flex gap-2 float-item">
                   <span className="mt-0.5 text-purpleGlow-300" aria-hidden="true">
                     ✓
                   </span>

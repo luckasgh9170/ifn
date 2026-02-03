@@ -26,7 +26,7 @@ export default function Features() {
                 ✦
               </span>
             </div>
-            <p className="mt-3 text-sm leading-relaxed text-white/70">{f.desc}</p>
+            <p className="mt-3 text-sm leading-relaxed text-white/70 float-item">{f.desc}</p>
             <div className="mt-5 h-px w-full bg-gradient-to-r from-purpleGlow-400/40 via-white/10 to-transparent" aria-hidden="true" />
             <div className="mt-4 text-sm font-semibold text-white/80">
               <span className="sr-only">Learn more</span>

@@ -58,7 +58,7 @@ export default function FinalCTA() {
           <div className="text-sm font-semibold text-white">{t('finalCta.demoBulletsTitle')}</div>
           <ul className="mt-4 space-y-3 text-sm text-white/70">
             {dict.finalCta.bullets.map((x) => (
-              <li key={x} className="flex gap-3">
+              <li key={x} className="flex gap-3 float-item">
                 <span className="mt-0.5 text-purpleGlow-300" aria-hidden="true">
                   ✓
                 </span>

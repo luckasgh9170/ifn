@@ -10,16 +10,19 @@ export default function Logos() {
     <section className="border-y border-white/10 bg-white/[0.02] py-10">
       <Container>
         <div className="text-center text-sm text-white/60">{t('logos.title')}</div>
-        <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
-          {logos.map((name) => (
-            <div
-              key={name}
-              className="glass flex items-center justify-center rounded-2xl px-3 py-4 text-sm font-semibold text-white/75"
-              aria-label={`Logo ${name}`}
-            >
-              {name}
-            </div>
-          ))}
+        <div className="mt-6 marquee">
+          <div className="marquee__track">
+            {[...logos, ...logos].map((name, idx) => (
+              <div
+                key={`${name}-${idx}`}
+                className="glass card-3d flex items-center justify-center rounded-2xl px-5 py-4 text-sm font-semibold text-white/75 tilt-root"
+                data-tilt
+                aria-label={`Logo ${name}`}
+              >
+                {name}
+              </div>
+            ))}
+          </div>
         </div>
       </Container>
     </section>

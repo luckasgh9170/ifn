@@ -42,4 +42,43 @@
   .tilt-root {
     perspective: 900px;
   }
+  .float-item {
+    animation: float 7s ease-in-out infinite;
+  }
+  .float-item:nth-child(2) {
+    animation-delay: 0.6s;
+  }
+  .float-item:nth-child(3) {
+    animation-delay: 1.2s;
+  }
+  .float-item:nth-child(4) {
+    animation-delay: 1.8s;
+  }
+  .float-item:nth-child(5) {
+    animation-delay: 2.4s;
+  }
+  .marquee {
+    --gap: 16px;
+    display: flex;
+    gap: var(--gap);
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+  .marquee__track {
+    display: flex;
+    gap: var(--gap);
+    min-width: 100%;
+    animation: marquee 22s linear infinite;
+  }
+  .marquee:hover .marquee__track {
+    animation-play-state: paused;
+  }
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-50% - var(--gap)));
+    }
+  }
 }
