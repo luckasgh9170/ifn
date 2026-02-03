@@ -192,20 +192,11 @@ export const translations = {
         'SellerAI has been active in IT and AI since 2011 (1390). We build automation products that help businesses grow with targeted outreach and smarter conversations.',
       rights: 'All rights reserved.'
     },
-    admin: {
-      eyebrow: 'Admin panel',
-      title: 'Receive form submissions in real time',
-      subtitle: 'Connect your backend and get instant notifications for every new form.',
-      connectTitle: 'Connection settings',
-      baseUrl: 'Backend URL',
-      token: 'Admin token',
-      connect: 'Connect',
-      disconnect: 'Disconnect',
-      enableNotif: 'Enable notifications',
-      status: 'Status',
-      inbox: 'Inbox',
-      empty: 'No submissions yet.',
-      notifyTitle: 'New form submission'
+    videos: {
+      eyebrow: 'Video highlights',
+      title: 'Customer stories and walkthroughs',
+      subtitle: 'We will add YouTube links here. This section is ready for embeds.',
+      placeholder: 'YouTube video placeholder'
     }
   },
   ar: {
@@ -401,21 +392,11 @@ export const translations = {
         'SellerAI تعمل في مجال تقنية المعلومات والذكاء الاصطناعي منذ 2011 (1390). نبني منتجات أتمتة تساعد الأعمال على النمو عبر استهداف أذكى ومحادثات أفضل.',
       rights: 'جميع الحقوق محفوظة.'
     },
-    admin: {
-      eyebrow: 'لوحة الإدارة',
-      title: 'استلام النماذج لحظة بلحظة',
-      subtitle: 'اربط الخادم وستصلك إشعارات فورية لكل نموذج جديد.',
-      connectTitle: 'إعدادات الاتصال',
-      baseUrl: 'رابط الخادم',
-      token: 'رمز الإدارة',
-      connect: 'اتصال',
-      disconnect: 'فصل',
-      enableNotif: 'تفعيل الإشعارات',
-      status: 'الحالة',
-      inbox: 'الوارد',
-      empty: 'لا توجد نماذج بعد.',
-      notifyTitle: 'نموذج جديد'
+    videos: {
+      eyebrow: 'مقاطع فيديو',
+      title: 'قصص العملاء وشرح المنتج',
+      subtitle: 'سنضيف روابط يوتيوب هنا. المكان جاهز للإضافة.',
+      placeholder: 'مكان فيديو يوتيوب'
     }
   }
 };
-

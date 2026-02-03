@@ -1,7 +1,6 @@
 import express from 'express';
 import { z } from 'zod';
 import { Inquiry } from '../models/Inquiry.js';
-import { adminEvents } from '../adminEvents.js';
 
 const router = express.Router();
 
@@ -17,14 +16,6 @@ router.post('/', async (req, res) => {
   if (!parsed.success) return res.status(400).json({ error: 'Invalid input', details: parsed.error.flatten() });
 
   const inquiry = await Inquiry.create(parsed.data);
-  adminEvents.emit('inquiry', {
-    id: inquiry._id,
-    name: inquiry.name,
-    email: inquiry.email,
-    company: inquiry.company,
-    message: inquiry.message,
-    createdAt: inquiry.createdAt
-  });
   return res.status(201).json({ id: inquiry._id });
 });
 
