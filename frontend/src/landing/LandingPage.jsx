@@ -6,9 +6,9 @@ import Features from './sections/Features.jsx';
 import HowItWorks from './sections/HowItWorks.jsx';
 import Plans from './sections/Plans.jsx';
 import FAQ from './sections/FAQ.jsx';
-import FinalCTA from './sections/FinalCTA.jsx';
 import Footer from './sections/Footer.jsx';
 import VideoGallery from './sections/VideoGallery.jsx';
+import WhatsAppCTA from './sections/WhatsAppCTA.jsx';
 import useTilt from './hooks/useTilt.js';
 
 export default function LandingPage() {
@@ -24,7 +24,7 @@ export default function LandingPage() {
         <Plans />
         <VideoGallery />
         <FAQ />
-        <FinalCTA />
+        <WhatsAppCTA />
       </main>
       <Footer />
     </div>

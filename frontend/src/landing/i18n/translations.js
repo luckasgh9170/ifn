@@ -197,6 +197,13 @@ export const translations = {
       title: 'Customer stories and walkthroughs',
       subtitle: 'We will add YouTube links here. This section is ready for embeds.',
       placeholder: 'YouTube video placeholder'
+    },
+    whatsapp: {
+      eyebrow: 'WhatsApp',
+      title: 'Chat with us on WhatsApp',
+      subtitle: 'Open a direct chat and get a fast response.',
+      button: 'Open WhatsApp chat',
+      note: 'Opens WhatsApp with a pre-filled message.'
     }
   },
   ar: {
@@ -397,6 +404,13 @@ export const translations = {
       title: 'قصص العملاء وشرح المنتج',
       subtitle: 'سنضيف روابط يوتيوب هنا. المكان جاهز للإضافة.',
       placeholder: 'مكان فيديو يوتيوب'
+    },
+    whatsapp: {
+      eyebrow: 'واتساب',
+      title: 'تواصل معنا عبر واتساب',
+      subtitle: 'افتح محادثة مباشرة واحصل على رد سريع.',
+      button: 'افتح محادثة واتساب',
+      note: 'سيتم فتح واتساب برسالة جاهزة.'
     }
   }
 };
